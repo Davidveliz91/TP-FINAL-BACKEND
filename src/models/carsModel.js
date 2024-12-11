@@ -1,6 +1,6 @@
 import mongoose from "mongoose"
 
-const carsSchema = new mongoose.Schema({
+const carSchema = new mongoose.Schema({
     make: {
         type: String,
         required: true,
@@ -12,16 +12,16 @@ const carsSchema = new mongoose.Schema({
       year: {
         type: Number,
         required: true,
-        min: 1960, 
-        max: 2000,
       },
       price: {
         type: Number,
         required: true,
-      }
-})
+      },
+     }, {
+        versionKey: false
+      })
 
-const Car = mongoose.model ("car", carsSchema)
+const Car = mongoose.model("car", carSchema)
 
 const getAllCars = async () => {
     try{

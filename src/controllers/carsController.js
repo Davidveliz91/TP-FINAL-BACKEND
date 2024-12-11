@@ -2,7 +2,7 @@ import Car from "../models/carsModel.js"
 
 const getAllCars = async (req, res) => {
     try{
-const cars =  await Car.getAllCars()
+const cars =  await Car.getAllCars();
 res.json (cars)
     } catch (error){
 res.status(500).json({ status: 500, error: error.message })
