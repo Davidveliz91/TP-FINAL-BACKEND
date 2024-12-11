@@ -41,4 +41,13 @@ return newCar
 throw new Error ("Error al ingresar auto")
 }
 }
-export default { getAllCars, addCar}
+const updateCar = (id, updateCar) => {
+  return Car.findByIdAndUpdate(id, updateCar)
+}
+
+const deleteCar = (id) => {
+  const response = Car.findOneAndDelete(id)
+  return response
+}
+
+export default { getAllCars, addCar, updateCar, deleteCar }

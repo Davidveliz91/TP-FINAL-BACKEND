@@ -1,3 +1,4 @@
+import carsModel from "../models/carsModel.js";
 import Car from "../models/carsModel.js"
 
 const getAllCars = async (req, res) => {
@@ -18,4 +19,28 @@ res.status(201).json(newCar)
         res.status(500).json({ status: 500, error: error.message })
     }
 }
-export { getAllCars, addCar }
+
+const updateCar = async (req, res) =>{
+    try {
+        const { id } = req.params
+        const { body } = req
+        const car = await carsModel.updateCar(id, body);
+        if (!car) return res.status(404).json({ message: 'automovil no encontrado' });
+        res.json(car);
+      } catch (error) {
+        res.status(500).json({ message: 'Error al actualizar el automovil' });
+      }
+}
+
+const deleteCar = async (req, res) =>{
+    try {
+        const { id } = req.params
+        const car = await carsModel.deleteCar(id);
+        if (!car) return res.status(404).json({ message: 'Automovil no encontrado' });
+        res.json(car);
+      } catch (error) {
+        res.status(500).json({ message: 'Error al eliminar el automovil' });
+      }
+}
+
+export { getAllCars, addCar, updateCar, deleteCar }

@@ -12,7 +12,9 @@ app.use(express.json())
 
 connectDB()
 
-app.use("/api/cars", carsRouter)
+//app.use("api/users", userRoutes);
+app.use("/api/cars", carsRouter);
+//app.use("/api/auth", authRoutes)
 
 app.listen(PORT, () => {
    console.log(" Servidor en escucha por el puerto http://localhost:" + PORT)
