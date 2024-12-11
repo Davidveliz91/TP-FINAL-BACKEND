@@ -34,6 +34,6 @@ Inicia sesión con credenciales de usuario.
 **Request Body**:
 ```json
 {
-  "email": "user@example.com",
-  "password": "password123"
+  "username": "claudio2",
+  "password": "claudio1234"
 }
