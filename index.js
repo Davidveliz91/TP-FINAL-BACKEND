@@ -12,7 +12,6 @@ app.use(express.json())
 
 connectDB()
 
-//app.use("api/users", userRoutes);
 app.use("/api/cars", carsRouter);
 app.use("/api/auth", authRouter)
 
